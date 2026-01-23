@@ -1,22 +1,27 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+	import Link from './Link.svelte';
+
 	let tabs = [
-		{ label: 'home', href: '/' },
-		{ label: 'projects', href: '/projects' },
-		{ label: 'resume', href: '/resume' },
-		{ label: 'github', href: 'https://github.com/plasmavolt' }
+		{ label: 'projects', href: '/projects' as '/' },
+		{ label: 'resume', href: '/resume' as '/' }
 	];
 </script>
 
-<header class="max-h-8 bg-slate-200">
-	<div class="flex flex-row justify-between px-2 py-1">
-		<h3>Frank Lin</h3>
-		<!-- navigation links -->
-		<nav class="flex flex-row space-x-8 pr-4">
+<header
+	class="fixed top-0 left-0 z-100 flex w-full flex-row items-center justify-between gap-1.5 overflow-hidden border-b p-5 text-sm backdrop-blur-md sm:gap-2.5"
+>
+	<Link href={resolve('/')}>frank</Link>
+	<!-- navigation links -->
+	<nav>
+		<ul class="flex flex-row space-x-8 pr-4">
 			{#each tabs as tab (tab.label)}
-				<a href={tab.href} class="text-slate-800 hover:text-slate-600">
-					<p>{tab.label}</p>
-				</a>
+				<li>
+					<Link href={resolve(tab.href)}>
+						{tab.label}
+					</Link>
+				</li>
 			{/each}
-		</nav>
-	</div>
+		</ul>
+	</nav>
 </header>

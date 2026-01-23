@@ -1,6 +1,5 @@
-@tailwindcss base;
-@tailwindcss components;
-@tailwindcss utilities;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 html {
 	scroll-behavior: smooth;
