@@ -10,7 +10,11 @@
 
 <div class="flex h-screen min-h-screen flex-col">
 	<Header />
-	<main class="flex-1">
-		{@render children()}
-	</main>
+	<!-- spacer -->
+	<div class="h-16"></div>
+	<div class="flex-1">
+		<main class="flex-1">
+			{@render children()}
+		</main>
+	</div>
 </div>
