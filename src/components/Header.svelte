@@ -3,8 +3,9 @@
 	import Link from './Link.svelte';
 
 	let tabs = [
-		{ label: 'projects', href: '/projects' as '/' },
-		{ label: 'resume', href: '/resume' as '/' }
+		{ label: 'github', href: 'https://github.com/plasmavolt' },
+		{ label: 'linkedin', href: 'https://linkedin.com/in/franktbh' },
+		{ label: 'resume', href: '/resume' }
 	];
 </script>
 
@@ -20,7 +21,7 @@
 			<ul class="flex flex-row space-x-8 pr-4">
 				{#each tabs as tab (tab.label)}
 					<li>
-						<Link href={resolve(tab.href)}>
+						<Link href={tab.href}>
 							{tab.label}
 						</Link>
 					</li>

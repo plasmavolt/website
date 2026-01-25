@@ -1,3 +1,35 @@
+<script lang="ts">
+	import Card from '../components/Card.svelte';
+</script>
+
 <div class="flex h-screen flex-col items-center justify-center">
-	<h1>Hi, I'm Frank Lin</h1>
+	<div class="flex flex-col p-16">
+		<div class="flex flex-row">
+			<Card
+				title="Hi!"
+				images={[
+					{
+						src: 'src/lib/assets/images/me.jpg',
+						alt: 'me',
+						class: 'h-96',
+						caption: 'me!'
+					}
+				]}
+				idx={1}
+			>
+				{#snippet description()}
+					<p>hello, i'm frank</p>
+
+					<p>
+						i'm an undergrad at nyu studying math and cs. as a software
+						developer, i want to build tools and applications that matter.
+						recently, i've been interested in algebra, category theory, and
+						functional programming. i also enjoy piano, photography, and
+						crosswords!
+					</p>
+					<p>get in touch with me! linfrank [at] nyu [dot] edu</p>
+				{/snippet}
+			</Card>
+		</div>
+	</div>
 </div>
