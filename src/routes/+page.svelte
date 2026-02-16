@@ -4,7 +4,7 @@
 
 <div class="flex h-screen flex-col items-center justify-center">
 	<div class="flex flex-col p-16">
-		<div class="flex flex-row">
+		<div class="flex flex-col">
 			<Card
 				title="Hi!"
 				images={[
@@ -23,13 +23,14 @@
 					<p>
 						i'm an undergrad at nyu studying math and cs. as a software
 						developer, i want to build tools and applications that matter.
-						recently, i've been interested in algebra, category theory, and
+						recently, i've been interested in formal methods, category theory, and
 						functional programming. i also enjoy piano, photography, and
 						crosswords!
 					</p>
-					<p>get in touch with me! linfrank [at] nyu [dot] edu</p>
+					<p>email me! frank [dot] lin [at] nyu [dot] edu</p>
 				{/snippet}
 			</Card>
+			
 		</div>
 	</div>
 </div>
