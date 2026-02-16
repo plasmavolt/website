@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Card from '../components/Card.svelte';
+	import meImg from '$lib/assets/images/me.jpg';
 </script>
 
 <div class="flex h-screen flex-col items-center justify-center">
@@ -9,7 +10,7 @@
 				title="Hi!"
 				images={[
 					{
-						src: 'src/lib/assets/images/me.jpg',
+						src: meImg,
 						alt: 'me',
 						class: 'h-96',
 						caption: 'me!'

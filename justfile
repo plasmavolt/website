@@ -10,7 +10,7 @@ serve:
     bun run dev
 
 deploy:
-    bun run build && bun run serve
+    bun run build && bun run dev
 
 format:
     bun run format
