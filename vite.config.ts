@@ -16,8 +16,9 @@ export default defineConfig({
 					filename.split(/[/\\]/).includes('node_modules') ? undefined : true
 			},
 
-			// fully static output for Cloudflare Pages (serves build/ as-is)
-			adapter: adapter(),
+			// fully static output served by a Cloudflare Worker as assets (see wrangler.jsonc);
+			// 404.html is the shell the Worker serves for unknown paths
+			adapter: adapter({ fallback: '404.html' }),
 			prerender: {
 				handleHttpError: ({ path, message }) => {
 					// filler link until the real resume lands in static/
