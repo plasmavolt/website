@@ -3,8 +3,9 @@
 	import { kbItem } from '$lib/keyboard/nav';
 	import { projects } from '$lib/data/projects';
 	import { site } from '$lib/data/site';
-	import aboutTxt from '$lib/data/about.txt?raw';
-	import nowTxt from '$lib/data/now.txt?raw';
+	import aboutTxt from '$lib/data/about.md?raw';
+	import nowTxt from '$lib/data/now.md?raw';
+	import { renderInline } from '$lib/md';
 
 	const photos = import.meta.glob<string>('$lib/photos/*.{jpg,jpeg,png}', {
 		eager: true,
@@ -29,7 +30,7 @@
 
 <section class="mb-8">
 	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat about.txt</h2>
-	<p>{aboutTxt.trim()}</p>
+	<p>{@html renderInline(aboutTxt.trim())}</p>
 </section>
 
 <section class="mb-8">
@@ -38,7 +39,7 @@
 		{#each now as item (item.key)}
 			<li class="grid grid-cols-[10ch_1fr] gap-3">
 				<span class="text-dim">{item.key}</span>
-				<span>{item.value}</span>
+				<span>{@html renderInline(item.value)}</span>
 			</li>
 		{/each}
 	</ul>

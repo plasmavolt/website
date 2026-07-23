@@ -1,1 +1,0 @@
-hello, i'm frank. i study math and cs at nyu and want to build tools that matter, lately by way of formal methods, category theory, and functional programming. off the keyboard it's piano, photography, and crosswords.

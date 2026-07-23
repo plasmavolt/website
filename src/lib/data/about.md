@@ -1,0 +1,1 @@
+hi, i'm frank! i'm a second-year undergrad studying math and cs at nyu. academically, i'm broadly interested in systems programming, formalization, and PL theory. i also love piano, photography, and crosswords. reach out if you want to say hi!
