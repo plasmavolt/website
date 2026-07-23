@@ -15,12 +15,18 @@
 		{ href: resolve('/words'), label: 'words/', meta: 'wip' },
 		{ href: '/resume.pdf', label: 'resume.pdf', meta: 'soon' }
 	];
+
+	const now = [
+		{ key: 'building', value: 'this website' },
+		{ key: 'reading', value: 'tbd' },
+		{ key: 'listening', value: 'tbd' }
+	];
 </script>
 
 <svelte:head><title>frank</title></svelte:head>
 
-<section class="mb-12">
-	<h2 class="mb-3 text-dim">$ cat about.txt</h2>
+<section class="mb-8">
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat about.txt</h2>
 	<p>
 		hello, i'm frank. i study math and cs at nyu and want to build tools that matter, lately by way
 		of formal methods, category theory, and functional programming. off the keyboard it's piano,
@@ -28,11 +34,23 @@
 	</p>
 </section>
 
-<section class="mb-12">
-	<h2 class="mb-3 text-dim">$ ls ~/</h2>
+<section class="mb-8">
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat now.txt</h2>
+	<ul>
+		{#each now as item (item.key)}
+			<li class="grid grid-cols-[10ch_1fr] gap-3">
+				<span class="text-dim">{item.key}</span>
+				<span>{item.value}</span>
+			</li>
+		{/each}
+	</ul>
+</section>
+
+<section class="mb-8">
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> ls ~/</h2>
 	<ul>
 		{#each entries as entry, i (entry.label)}
-			<li class="flex gap-4 px-3 py-1">
+			<li class="flex gap-3 px-1 py-1">
 				<span class="marker w-[1ch]">></span>
 				<span class="text-dim">{i + 1}</span>
 				<a href={entry.href} use:kbItem class="no-underline">{entry.label}</a>
@@ -42,22 +60,23 @@
 	</ul>
 </section>
 
-<section class="mb-12">
-	<h2 class="mb-3 text-dim">$ ls ~/projects</h2>
+<section class="mb-8">
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> ls ~/projects</h2>
 	<ul>
 		{#each projects as project (project.name)}
-			<li class="grid grid-cols-[1ch_10ch_1fr_6ch] gap-4 px-3 py-1">
+			<li class="grid grid-cols-[1ch_14ch_1fr] gap-3 px-1 py-1">
 				<span class="marker">></span>
-				<a href={project.href} use:kbItem class="no-underline">{project.name}</a>
+				<a href={project.href} use:kbItem class="no-underline"
+					>{project.name}<span class="text-dim">{project.ext}</span></a
+				>
 				<span class="text-dim">{project.description}</span>
-				<span class="text-right text-dim">{project.lang}</span>
 			</li>
 		{/each}
 	</ul>
 </section>
 
-<section class="mb-12">
-	<h2 class="mb-3 text-dim">$ sxiv ~/photos | head -3</h2>
+<section class="mb-8">
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> sxiv ~/photos | head -3</h2>
 	<div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
 		{#each strip as [path, src] (path)}
 			<a href={resolve('/photos')} tabindex="-1" aria-label="all photos">
@@ -81,6 +100,6 @@
 </section>
 
 <section>
-	<h2 class="mb-3 text-dim">$ tail ~/words</h2>
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> tail ~/words</h2>
 	<p class="text-dim">nothing here yet.</p>
 </section>

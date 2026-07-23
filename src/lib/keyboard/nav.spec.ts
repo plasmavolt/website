@@ -5,8 +5,11 @@ describe('resolveKey', () => {
 	it('maps single motions', () => {
 		expect(resolveKey('j', null)).toEqual({ action: 'down', pending: null });
 		expect(resolveKey('k', null)).toEqual({ action: 'up', pending: null });
+		expect(resolveKey('h', null)).toEqual({ action: 'home', pending: null });
+		expect(resolveKey('l', null)).toEqual({ action: 'open', pending: null });
 		expect(resolveKey('G', null)).toEqual({ action: 'bottom', pending: null });
 		expect(resolveKey('?', null)).toEqual({ action: 'help', pending: null });
+		expect(resolveKey(':', null)).toEqual({ action: 'cmd', pending: null });
 		expect(resolveKey('5', null)).toEqual({ action: 'jump:5', pending: null });
 	});
 
@@ -16,12 +19,13 @@ describe('resolveKey', () => {
 
 	it('completes g sequences', () => {
 		expect(resolveKey('g', 'g')).toEqual({ action: 'top', pending: null });
-		expect(resolveKey('h', 'g')).toEqual({ action: 'goto:h', pending: null });
+		expect(resolveKey('i', 'g')).toEqual({ action: 'goto:i', pending: null });
 		expect(resolveKey('w', 'g')).toEqual({ action: 'goto:w', pending: null });
 	});
 
 	it('drops invalid g sequences', () => {
 		expect(resolveKey('z', 'g')).toEqual({ action: null, pending: null });
+		expect(resolveKey('h', 'g')).toEqual({ action: null, pending: null });
 	});
 
 	it('ignores unbound keys', () => {

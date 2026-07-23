@@ -11,7 +11,7 @@
 <svelte:head><title>frank / photos</title></svelte:head>
 
 <section>
-	<h2 class="mb-3 text-dim">$ sxiv ~/photos</h2>
+	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> sxiv ~/photos</h2>
 	{#if Object.keys(photos).length === 0}
 		<p class="text-dim">total 0</p>
 	{:else}

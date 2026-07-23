@@ -19,7 +19,7 @@
 		}
 	}}
 >
-	<h2 class="mb-4 text-dim">$ man frank</h2>
+	<h2 class="mb-4 text-dim"><span class="text-accent">$</span> man frank</h2>
 	<table class="w-full">
 		<tbody>
 			{#each bindings as binding (binding.keys)}
