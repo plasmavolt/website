@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @import '@fontsource/commit-mono/400.css';
 @import '@fontsource/commit-mono/700.css';
+/* fallbacks for glyphs missing from commit mono's latin subset (kaomoji
+   cat, kana, cjk punctuation), so they render the same on every platform.
+   unicode-range subsetting means only the needed files get downloaded. */
+@import '@fontsource/dejavu-mono/400.css';
+@import '@fontsource/noto-sans/400.css';
+@import '@fontsource/noto-sans-jp/400.css';
 @plugin '@tailwindcss/typography';
 
 @theme {
@@ -9,7 +15,9 @@
 	--color-dim: #6f6f6a;
 	--color-line: #26262a;
 	--color-accent: #e6c07b;
-	--font-mono: 'Commit Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+	--font-mono:
+		'Commit Mono', 'DejaVu Mono', 'Noto Sans', 'Noto Sans JP', ui-monospace, 'SF Mono', Menlo,
+		monospace;
 }
 
 html {

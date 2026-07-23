@@ -4,6 +4,7 @@
 	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 	import HelpOverlay from '$lib/components/HelpOverlay.svelte';
+	import Cat from '$lib/components/Cat.svelte';
 	import { handleKeydown } from '$lib/keyboard/nav';
 	import { vim } from '$lib/keyboard/state.svelte';
 	import { site } from '$lib/data/site';
@@ -54,13 +55,7 @@
 					{/each}
 				</div>
 			</div>
-			<a href="https://en.wikipedia.org/wiki/Cat_(Unix)" target="_blank" rel="noopener" class="no-underline hover:text-accent">
-				<pre class="m-0 select-none text-dim leading-none hover:text-accent">
-            ╱|、
-          =(˚˕ 。7
-           |、 ~〵
-           じし ˍ,)づ</pre>
-			</a>
+			<Cat />
 		</header>
 
 		<main>
