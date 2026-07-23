@@ -46,14 +46,11 @@
 	<h2 class="mb-3 text-dim">$ ls ~/projects</h2>
 	<ul>
 		{#each projects as project (project.name)}
-			<li class="flex gap-4 px-3 py-1">
-				<span class="marker w-[1ch]">></span>
-				<div class="flex min-w-0 flex-1 flex-col gap-x-4 sm:flex-row">
-					<a href={project.href} use:kbItem class="whitespace-nowrap no-underline">{project.name}</a
-					>
-					<span class="text-dim">{project.description}</span>
-				</div>
-				<span class="ml-auto whitespace-nowrap text-dim">{project.lang}</span>
+			<li class="grid grid-cols-[1ch_10ch_1fr_6ch] gap-4 px-3 py-1">
+				<span class="marker">></span>
+				<a href={project.href} use:kbItem class="no-underline">{project.name}</a>
+				<span class="text-dim">{project.description}</span>
+				<span class="text-right text-accent">{project.lang}</span>
 			</li>
 		{/each}
 	</ul>
@@ -84,5 +81,5 @@
 
 <section>
 	<h2 class="mb-3 text-dim">$ tail ~/words</h2>
-	<p class="text-dim">nothing here yet. words are compiling.</p>
+	<p class="text-dim">nothing here yet.</p>
 </section>

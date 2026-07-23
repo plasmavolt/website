@@ -27,7 +27,7 @@ export const projects: Project[] = [
 	{
 		name: 'nixfiles',
 		href: 'https://github.com/plasmavolt/nixfiles',
-		description: 'my nixos config (•˕ •マ.ᐟ',
+		description: 'my nixos config',
 		lang: 'nix'
 	}
 ];

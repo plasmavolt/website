@@ -17,7 +17,7 @@
 		<header class="mb-12">
 			<div>
 				<span class="text-accent">~</span>
-				<a href={resolve('/')} class="font-bold">frank (•˕ •マ.ᐟ</a>
+				<a href={resolve('/')} class="font-bold">frank (•˕ •マ</a>
 				<span class="text-dim">/ math ∧ cs @nyu</span>
 			</div>
 			<div
@@ -42,8 +42,9 @@
 	<div class="flex w-full max-w-2xl justify-between">
 		<span>
 			<span class="text-accent">[j][k]</span> move
-			<span class="text-accent">[g]</span> goto
-			<span class="text-accent">[Enter]</span> open
+			<span class="text-accent">[gh]</span> home
+			<span class="text-accent">[gi]</span> photos
+			<span class="text-accent">[gw]</span> words
 		</span>
 		<span><span class="text-accent">[?]</span> help</span>
 	</div>
