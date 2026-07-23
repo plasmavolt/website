@@ -6,7 +6,7 @@ export const site = {
 	links: [
 		{ label: 'github', href: 'https://github.com/plasmavolt' },
 		{ label: 'linkedin', href: 'https://linkedin.com/in/franktbh' },
-		{ label: 'email', href: 'mailto:frank@superscript.nyc' }
+		{ label: 'email', href: 'mailto:frank.lin@nyu.edu' }
 	],
 	menu: [
 		{ href: '/photos', label: 'photos/', meta: 'placeholders' },

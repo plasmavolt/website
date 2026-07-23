@@ -44,7 +44,11 @@
 			>
 				{site.location} /
 				{#each site.links as link, i (link.label)}
-					<a href={link.href}>{link.label}</a>{#if i < site.links.length - 1}{' · '}{/if}
+					<a
+						href={link.href}
+						target={link.href.startsWith('http') ? '_blank' : undefined}
+						rel={link.href.startsWith('http') ? 'noopener' : undefined}>{link.label}</a
+					>{i < site.links.length - 1 ? ' · ' : ''}
 				{/each}
 			</div>
 		</header>
@@ -66,7 +70,10 @@
 		{:else}
 			<span class="truncate"><span class="text-accent">[frank]</span> {path}</span>
 		{/if}
-		<span class="whitespace-nowrap"><span class="text-accent">[?]</span> help · nyc {time}</span>
+		<span class="whitespace-nowrap">
+			<span class="text-accent">[j/k]</span> move · <span class="text-accent">[?]</span> help · nyc
+			{time}
+		</span>
 	</div>
 </footer>
 

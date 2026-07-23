@@ -30,6 +30,7 @@
 
 <section class="mb-8">
 	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat about.txt</h2>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -- renderInline escapes repo-owned markdown -->
 	<p>{@html renderInline(aboutTxt.trim())}</p>
 </section>
 
@@ -39,6 +40,7 @@
 		{#each now as item (item.key)}
 			<li class="grid grid-cols-[10ch_1fr] gap-3">
 				<span class="text-dim">{item.key}</span>
+				<!-- eslint-disable-next-line svelte/no-at-html-tags -- renderInline escapes repo-owned markdown -->
 				<span>{@html renderInline(item.value)}</span>
 			</li>
 		{/each}
@@ -65,7 +67,7 @@
 		{#each projects as project (project.name)}
 			<li class="grid grid-cols-[1ch_14ch_1fr] gap-3 px-1 py-1">
 				<span class="marker">></span>
-				<a href={project.href} use:kbItem class="no-underline"
+				<a href={project.href} target="_blank" rel="noopener" use:kbItem class="no-underline"
 					>{project.name}<span class="text-dim">{project.ext}</span></a
 				>
 				<span class="text-dim">{project.description}</span>

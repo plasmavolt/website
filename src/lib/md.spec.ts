@@ -17,6 +17,11 @@ describe('renderInline', () => {
 		expect(out).toContain(', by tony');
 	});
 
+	it('opens external links in a new tab', () => {
+		expect(renderInline('[x](https://a.com)')).toContain('target="_blank"');
+		expect(renderInline('[x](/photos)')).not.toContain('target');
+	});
+
 	it('renders multiple links in one line', () => {
 		const out = renderInline('[a](https://a.com) and [b](https://b.com)');
 		expect(out.match(/<a /g)).toHaveLength(2);
