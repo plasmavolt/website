@@ -1,6 +1,6 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "website",
+	"name": "frank",
 	"compatibility_date": "2026-07-23",
 	// no worker script, just the prerendered site served as static assets
 	"assets": {
