@@ -8,7 +8,7 @@
 		import: 'default',
 		query: { enhanced: true }
 	});
-	const strip = Object.entries(photos).slice(0, 4);
+	const strip = Object.entries(photos).slice(0, 3);
 
 	const entries = [
 		{ href: resolve('/photos'), label: 'photos/', meta: 'placeholders' },
@@ -50,14 +50,14 @@
 				<span class="marker">></span>
 				<a href={project.href} use:kbItem class="no-underline">{project.name}</a>
 				<span class="text-dim">{project.description}</span>
-				<span class="text-right text-accent">{project.lang}</span>
+				<span class="text-right text-dim">{project.lang}</span>
 			</li>
 		{/each}
 	</ul>
 </section>
 
 <section class="mb-12">
-	<h2 class="mb-3 text-dim">$ sxiv ~/photos | head -4</h2>
+	<h2 class="mb-3 text-dim">$ sxiv ~/photos | head -3</h2>
 	<div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
 		{#each strip as [path, src] (path)}
 			<a href={resolve('/photos')} tabindex="-1" aria-label="all photos">
@@ -70,13 +70,14 @@
 				/>
 			</a>
 		{/each}
+		<a
+			href={resolve('/photos')}
+			use:kbItem
+			class="flex aspect-[16/10] items-center justify-center border border-line text-dim no-underline hover:border-accent focus:bg-fg focus:text-bg"
+		>
+			view all
+		</a>
 	</div>
-	<ul class="mt-2">
-		<li class="flex gap-4 px-3 py-1">
-			<span class="marker w-[1ch]">></span>
-			<a href={resolve('/photos')} use:kbItem class="text-dim no-underline">view all</a>
-		</li>
-	</ul>
 </section>
 
 <section>

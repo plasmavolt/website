@@ -21,12 +21,14 @@
 				<span class="text-dim">/ math ∧ cs @nyu</span>
 			</div>
 			<div
-				class="text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
+				class="flex justify-between text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
 			>
-				new york ·
-				<a href="https://github.com/plasmavolt">github</a> ·
-				<a href="https://linkedin.com/in/franktbh">linkedin</a> ·
-				<a href="mailto:frank@superscript.nyc">email</a>
+				<span>new york</span>
+				<span>
+					<a href="https://github.com/plasmavolt">github</a> ·
+					<a href="https://linkedin.com/in/franktbh">linkedin</a> ·
+					<a href="mailto:frank@superscript.nyc">email</a>
+				</span>
 			</div>
 		</header>
 

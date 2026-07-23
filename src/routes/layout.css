@@ -20,19 +20,8 @@ html {
 	scrollbar-gutter: stable;
 }
 
-/* underline grows from the left on hover, ported from the previous site */
-a {
-	background-image: linear-gradient(to right, var(--color-accent), var(--color-accent));
-	background-size: 0% 1px;
-	background-position: 0 100%;
-	background-repeat: no-repeat;
-	transition:
-		background-size 250ms ease-out,
-		color 150ms ease-out;
-}
 a:hover {
 	color: var(--color-accent);
-	background-size: 100% 1px;
 }
 
 /* keyboard-selected row: the nav action puts data-kb on the anchor */
