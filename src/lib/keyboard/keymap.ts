@@ -3,7 +3,6 @@ import { resolve } from '$app/paths';
 /** routes reachable via `g` prefix, e.g. `gh` goes home */
 export const gotoMap: Record<string, { href: string; label: string }> = {
 	h: { href: resolve('/'), label: 'go home' },
-	p: { href: resolve('/projects'), label: 'go to projects' },
 	i: { href: resolve('/photos'), label: 'go to photos' },
 	w: { href: resolve('/words'), label: 'go to words' }
 };
