@@ -2,6 +2,9 @@
 	import { resolve } from '$app/paths';
 	import { kbItem } from '$lib/keyboard/nav';
 	import { projects } from '$lib/data/projects';
+	import { site } from '$lib/data/site';
+	import aboutTxt from '$lib/data/about.txt?raw';
+	import nowTxt from '$lib/data/now.txt?raw';
 
 	const photos = import.meta.glob<string>('$lib/photos/*.{jpg,jpeg,png}', {
 		eager: true,
@@ -10,28 +13,23 @@
 	});
 	const strip = Object.entries(photos).slice(0, 3);
 
-	const entries = [
-		{ href: resolve('/photos'), label: 'photos/', meta: 'placeholders' },
-		{ href: resolve('/words'), label: 'words/', meta: 'wip' },
-		{ href: '/resume.pdf', label: 'resume.pdf', meta: 'soon' }
-	];
+	const entries = site.menu;
 
-	const now = [
-		{ key: 'building', value: 'this website' },
-		{ key: 'reading', value: 'tbd' },
-		{ key: 'listening', value: 'tbd' }
-	];
+	// each line of now.txt is "<key> <rest of line>"
+	const now = nowTxt
+		.trim()
+		.split('\n')
+		.map((line) => {
+			const [key, ...rest] = line.split(' ');
+			return { key, value: rest.join(' ') };
+		});
 </script>
 
 <svelte:head><title>frank</title></svelte:head>
 
 <section class="mb-8">
 	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat about.txt</h2>
-	<p>
-		hello, i'm frank. i study math and cs at nyu and want to build tools that matter, lately by way
-		of formal methods, category theory, and functional programming. off the keyboard it's piano,
-		photography, and crosswords.
-	</p>
+	<p>{aboutTxt.trim()}</p>
 </section>
 
 <section class="mb-8">

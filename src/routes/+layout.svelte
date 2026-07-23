@@ -6,6 +6,7 @@
 	import HelpOverlay from '$lib/components/HelpOverlay.svelte';
 	import { handleKeydown } from '$lib/keyboard/nav';
 	import { vim } from '$lib/keyboard/state.svelte';
+	import { site } from '$lib/data/site';
 
 	let { children } = $props();
 	let help: HelpOverlay;
@@ -35,16 +36,16 @@
 		<header class="mb-8">
 			<div>
 				<span class="text-accent">~</span>
-				<a href={resolve('/')} class="font-bold">frank (•˕ •マ</a>
-				<span class="text-dim">/ math ∧ cs @nyu</span>
+				<a href={resolve('/')} class="font-bold">{site.name}</a>
+				<span class="text-dim">/ {site.tagline}</span>
 			</div>
 			<div
 				class="text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
 			>
-				new york /
-				<a href="https://github.com/plasmavolt">github</a> ·
-				<a href="https://linkedin.com/in/franktbh">linkedin</a> ·
-				<a href="mailto:frank@superscript.nyc">email</a>
+				{site.location} /
+				{#each site.links as link, i (link.label)}
+					<a href={link.href}>{link.label}</a>{#if i < site.links.length - 1}{' · '}{/if}
+				{/each}
 			</div>
 		</header>
 
