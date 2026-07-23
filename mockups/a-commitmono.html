@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>frank — mockup a: commit mono</title>
+		<style>
+			:root {
+				--bg: #fcfcfc;
+				--fg: #141414;
+				--dim: #767676;
+				--line: #e4e4e4;
+				--accent: #141414;
+			}
+			* {
+				box-sizing: border-box;
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				font-size: 15px;
+			}
+			body {
+				background: var(--bg);
+				color: var(--fg);
+				font-family: 'Commit Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+				line-height: 1.65;
+				display: flex;
+				justify-content: center;
+				padding: 4rem 1.25rem 6rem;
+			}
+			main {
+				width: 100%;
+				max-width: 620px;
+			}
+			a {
+				color: var(--fg);
+				text-decoration: underline;
+				text-underline-offset: 3px;
+			}
+			a:hover {
+				background: var(--fg);
+				color: var(--bg);
+				text-decoration: none;
+			}
+			header {
+				margin-bottom: 3.5rem;
+			}
+			header h1 {
+				font-size: 1rem;
+				font-weight: 700;
+				display: inline;
+			}
+			header nav {
+				margin-top: 0.5rem;
+				color: var(--dim);
+			}
+			header nav a {
+				color: var(--dim);
+				margin-right: 1.25rem;
+			}
+			section {
+				margin-bottom: 3.5rem;
+			}
+			h2 {
+				font-size: 1rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+			}
+			h2::before {
+				content: '## ';
+				color: var(--dim);
+				font-weight: 400;
+			}
+			p + p {
+				margin-top: 1rem;
+			}
+			.dim {
+				color: var(--dim);
+			}
+
+			ul.list {
+				list-style: none;
+			}
+			ul.list li {
+				display: flex;
+				gap: 1.25rem;
+				padding: 0.3rem 0.5rem;
+				margin-left: -0.5rem;
+			}
+			ul.list li .date {
+				color: var(--dim);
+				white-space: nowrap;
+			}
+			ul.list li.selected {
+				background: var(--fg);
+			}
+			ul.list li.selected a,
+			ul.list li.selected .date {
+				color: var(--bg);
+			}
+			ul.list li.selected a {
+				text-decoration: none;
+			}
+
+			.collage {
+				display: flex;
+				gap: 8px;
+			}
+			.collage .col {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+			.collage img {
+				width: 100%;
+				display: block;
+				filter: grayscale(0.15);
+			}
+
+			footer {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: var(--bg);
+				border-top: 1px solid var(--line);
+				display: flex;
+				justify-content: center;
+				font-size: 0.85rem;
+				color: var(--dim);
+				padding: 0.6rem 1.25rem;
+			}
+			footer .inner {
+				width: 100%;
+				max-width: 620px;
+				display: flex;
+				justify-content: space-between;
+			}
+			kbd {
+				border: 1px solid var(--line);
+				border-bottom-width: 2px;
+				border-radius: 3px;
+				padding: 0 0.35em;
+				font-family: inherit;
+				font-size: 0.9em;
+				color: var(--fg);
+			}
+
+			dialog {
+				margin: auto;
+				border: 1px solid var(--fg);
+				background: var(--bg);
+				color: var(--fg);
+				padding: 1.5rem 2rem;
+				max-width: 420px;
+				width: 90%;
+				font-family: inherit;
+				font-size: 0.9rem;
+			}
+			dialog::backdrop {
+				background: rgba(252, 252, 252, 0.85);
+			}
+			dialog h3 {
+				font-size: 0.9rem;
+				margin-bottom: 1rem;
+			}
+			dialog table {
+				width: 100%;
+				border-collapse: collapse;
+			}
+			dialog td {
+				padding: 0.25rem 0;
+				vertical-align: top;
+			}
+			dialog td:first-child {
+				width: 6rem;
+				white-space: nowrap;
+			}
+			dialog .dim {
+				display: block;
+				margin-top: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<header>
+				<h1>frank</h1>
+				<span class="dim">/ software, photos, occasional words</span>
+				<nav>
+					<a href="#">home</a><a href="#">projects</a><a href="#">photos</a><a href="#">blog</a>
+				</nav>
+			</header>
+
+			<section>
+				<p>
+					I build software in New York. Currently at <a href="#">superscript</a>. I care about small
+					tools, fast feedback loops, and keyboards doing more than they should.
+				</p>
+				<p class="dim">
+					elsewhere: <a href="#">github</a> · <a href="#">email</a> · <a href="#">rss</a>
+				</p>
+			</section>
+
+			<section>
+				<h2>writing</h2>
+				<ul class="list" id="list">
+					<li class="selected">
+						<span class="date">2026-06-14</span
+						><a href="#">Rebuilding my site for the fourth time</a>
+					</li>
+					<li><span class="date">2026-03-02</span><a href="#">Vim motions belong everywhere</a></li>
+					<li>
+						<span class="date">2025-11-20</span
+						><a href="#">Notes on shooting landscapes in winter</a>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>photos</h2>
+				<div class="collage">
+					<div class="col">
+						<img src="https://picsum.photos/id/1015/400/260" alt="" />
+						<img src="https://picsum.photos/id/1036/400/300" alt="" />
+					</div>
+					<div class="col">
+						<img src="https://picsum.photos/id/1018/400/310" alt="" />
+						<img src="https://picsum.photos/id/1043/400/250" alt="" />
+					</div>
+					<div class="col">
+						<img src="https://picsum.photos/id/1039/400/270" alt="" />
+						<img src="https://picsum.photos/id/1041/400/290" alt="" />
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="inner">
+				<span><kbd>j</kbd>/<kbd>k</kbd> move · <kbd>g</kbd> goto · <kbd>Enter</kbd> open</span>
+				<span><kbd>?</kbd> help</span>
+			</div>
+		</footer>
+
+		<dialog id="help">
+			<h3>## keybindings</h3>
+			<table>
+				<tr>
+					<td><kbd>j</kbd> / <kbd>k</kbd></td>
+					<td>move selection / scroll</td>
+				</tr>
+				<tr>
+					<td><kbd>gg</kbd> / <kbd>G</kbd></td>
+					<td>top / bottom</td>
+				</tr>
+				<tr>
+					<td><kbd>g</kbd><kbd>h</kbd></td>
+					<td>go home</td>
+				</tr>
+				<tr>
+					<td><kbd>g</kbd><kbd>p</kbd></td>
+					<td>go to projects</td>
+				</tr>
+				<tr>
+					<td><kbd>g</kbd><kbd>i</kbd></td>
+					<td>go to photos</td>
+				</tr>
+				<tr>
+					<td><kbd>g</kbd><kbd>b</kbd></td>
+					<td>go to blog</td>
+				</tr>
+				<tr>
+					<td><kbd>Enter</kbd></td>
+					<td>open selected</td>
+				</tr>
+				<tr>
+					<td><kbd>?</kbd></td>
+					<td>toggle this help</td>
+				</tr>
+			</table>
+			<span class="dim">press <kbd>Esc</kbd> or <kbd>?</kbd> to close</span>
+		</dialog>
+
+		<script>
+			const items = [...document.querySelectorAll('#list li')];
+			let sel = 0;
+			const help = document.getElementById('help');
+			document.addEventListener('keydown', (e) => {
+				if (e.key === '?') {
+					help.open ? help.close() : help.showModal();
+					e.preventDefault();
+					return;
+				}
+				if (help.open) return;
+				if (e.key === 'j') sel = Math.min(sel + 1, items.length - 1);
+				else if (e.key === 'k') sel = Math.max(sel - 1, 0);
+				else return;
+				items.forEach((li, i) => li.classList.toggle('selected', i === sel));
+			});
+		</script>
+	</body>
+</html>
