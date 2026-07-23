@@ -8,5 +8,44 @@
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">%sveltekit.body%</div>
+		<!-- cypher startup anim: inline so it starts on html parse instead of waiting for hydration -->
+		<script>
+			(() => {
+				if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+				const CHARS = '!<>-_\\/[]{}=+*^?#';
+				document.querySelectorAll('.cypher').forEach((el, idx) => {
+					const text = el.textContent;
+					const grow = 800; // chars appear linearly over this window
+					const settle = 250; // each char boils this long before resolving
+					const lead = 3; // chars boiling from the very start
+					const start = performance.now() + idx * 80;
+					el.style.animation = 'none';
+					el.style.opacity = '1';
+					const appear = (i) =>
+						i < lead ? 0 : (grow * (i - lead + 1)) / Math.max(1, text.length - lead + 1);
+					const frame = (now) => {
+						const t = Math.max(0, now - start);
+						let out = '';
+						let done = true;
+						for (let i = 0; i < text.length; i++) {
+							const a = appear(i);
+							if (t < a) {
+								done = false;
+								break;
+							}
+							if (t < a + settle) {
+								done = false;
+								out += text[i] === ' ' ? ' ' : CHARS[(Math.random() * CHARS.length) | 0];
+							} else {
+								out += text[i];
+							}
+						}
+						el.textContent = out;
+						if (!done) requestAnimationFrame(frame);
+					};
+					requestAnimationFrame(frame);
+				});
+			})();
+		</script>
 	</body>
 </html>

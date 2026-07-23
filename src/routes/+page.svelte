@@ -6,6 +6,9 @@
 	import aboutTxt from '$lib/data/about.md?raw';
 	import nowTxt from '$lib/data/now.md?raw';
 	import { renderInline } from '$lib/md';
+	import { takeBoot } from '$lib/fx/boot';
+
+	const boot = takeBoot();
 
 	const photos = import.meta.glob<string>('$lib/photos/*.{jpg,jpeg,png}', {
 		eager: true,
@@ -29,14 +32,20 @@
 <svelte:head><title>frank</title></svelte:head>
 
 <section class="mb-8">
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat about.txt</h2>
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>cat about.txt</span>
+	</h2>
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -- renderInline escapes repo-owned markdown -->
-	<p>{@html renderInline(aboutTxt.trim())}</p>
+	<p class:boot style="--boot-i: 0">{@html renderInline(aboutTxt.trim())}</p>
 </section>
 
 <section class="mb-8">
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> cat now.txt</h2>
-	<ul>
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>cat now.txt</span>
+	</h2>
+	<ul class:boot style="--boot-i: 1">
 		{#each now as item (item.key)}
 			<li class="grid grid-cols-[10ch_1fr] gap-3">
 				<span class="text-dim">{item.key}</span>
@@ -48,8 +57,11 @@
 </section>
 
 <section class="mb-8">
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> ls ~/</h2>
-	<ul>
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>ls ~/</span>
+	</h2>
+	<ul class:boot style="--boot-i: 2">
 		{#each entries as entry, i (entry.label)}
 			<li class="flex gap-3 px-1 py-1">
 				<span class="marker w-[1ch]">></span>
@@ -62,8 +74,11 @@
 </section>
 
 <section class="mb-8">
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> ls ~/projects</h2>
-	<ul>
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>ls ~/projects</span>
+	</h2>
+	<ul class:boot style="--boot-i: 3">
 		{#each projects as project, i (project.name)}
 			<li class="grid grid-cols-[1ch_2ch_14ch_1fr] gap-x-3 px-1 py-1">
 				<span class="marker">></span>
@@ -78,8 +93,11 @@
 </section>
 
 <section class="mb-8">
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> sxiv ~/photos | head -3</h2>
-	<div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4">
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>sxiv ~/photos | head -3</span>
+	</h2>
+	<div class="grid grid-cols-2 gap-1.5 sm:grid-cols-4" class:boot style="--boot-i: 4">
 		{#each strip as [path, src] (path)}
 			<a href={resolve('/photos')} tabindex="-1" aria-label="all photos">
 				<enhanced:img
@@ -103,6 +121,9 @@
 </section>
 
 <section>
-	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> tail ~/words</h2>
-	<p class="text-dim">nothing here yet.</p>
+	<h2 class="mb-3 text-dim">
+		<span class="text-accent">$</span>
+		<span class:cypher={boot}>tail ~/words</span>
+	</h2>
+	<p class="text-dim" class:boot style="--boot-i: 5">nothing here yet.</p>
 </section>
