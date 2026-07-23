@@ -34,24 +34,33 @@
 
 <div class="flex justify-center px-5 pt-16 pb-24">
 	<div class="w-full max-w-2xl">
-		<header class="mb-8">
+		<header class="mb-8 flex items-start justify-between">
 			<div>
-				<span class="text-accent">~</span>
-				<a href={resolve('/')} class="font-bold">{site.name}</a>
-				<span class="text-dim">/ {site.tagline}</span>
+				<div>
+					<span class="text-accent">~</span>
+					<a href={resolve('/')} class="font-bold">{site.name}</a>
+					<span class="text-dim">/ {site.tagline}</span>
+				</div>
+				<div
+					class="text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
+				>
+					{site.location} /
+					{#each site.links as link, i (link.label)}
+						<a
+							href={link.href}
+							target={link.href.startsWith('http') ? '_blank' : undefined}
+							rel={link.href.startsWith('http') ? 'noopener' : undefined}>{link.label}</a
+						>{i < site.links.length - 1 ? ' · ' : ''}
+					{/each}
+				</div>
 			</div>
-			<div
-				class="text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
-			>
-				{site.location} /
-				{#each site.links as link, i (link.label)}
-					<a
-						href={link.href}
-						target={link.href.startsWith('http') ? '_blank' : undefined}
-						rel={link.href.startsWith('http') ? 'noopener' : undefined}>{link.label}</a
-					>{i < site.links.length - 1 ? ' · ' : ''}
-				{/each}
-			</div>
+			<a href="https://en.wikipedia.org/wiki/Cat_(Unix)" target="_blank" rel="noopener" class="no-underline hover:text-accent">
+				<pre class="m-0 select-none text-dim leading-none hover:text-accent">
+            ╱|、
+          =(˚˕ 。7
+           |、 ~〵
+           じし ˍ,)づ</pre>
+			</a>
 		</header>
 
 		<main>

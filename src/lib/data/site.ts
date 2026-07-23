@@ -1,6 +1,6 @@
 // all header/menu text lives here; prose lives in about.txt and now.txt
 export const site = {
-	name: 'frank (•˕ •マ',
+	name: 'frank lin',
 	tagline: 'math ∧ cs @nyu',
 	location: 'new york',
 	links: [

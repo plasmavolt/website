@@ -64,9 +64,10 @@
 <section class="mb-8">
 	<h2 class="mb-3 text-dim"><span class="text-accent">$</span> ls ~/projects</h2>
 	<ul>
-		{#each projects as project (project.name)}
-			<li class="grid grid-cols-[1ch_14ch_1fr] gap-3 px-1 py-1">
+		{#each projects as project, i (project.name)}
+			<li class="grid grid-cols-[1ch_2ch_14ch_1fr] gap-x-3 px-1 py-1">
 				<span class="marker">></span>
+				<span class="text-dim">{entries.length + i + 1}</span>
 				<a href={project.href} target="_blank" rel="noopener" use:kbItem class="no-underline"
 					>{project.name}<span class="text-dim">{project.ext}</span></a
 				>
@@ -93,8 +94,9 @@
 		<a
 			href={resolve('/photos')}
 			use:kbItem
-			class="flex aspect-[16/10] items-center justify-center border border-line text-dim no-underline hover:border-accent focus:bg-fg focus:text-bg"
+			class="relative flex aspect-[16/10] items-center justify-center border border-line text-dim no-underline hover:border-accent focus:bg-fg focus:text-bg"
 		>
+			<span class="absolute top-1 left-1.5 text-xs text-dim/50">{entries.length + projects.length + 1}</span>
 			view all
 		</a>
 	</div>
