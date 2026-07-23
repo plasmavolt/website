@@ -20,7 +20,8 @@
 				timeZone: 'America/New_York',
 				hour: '2-digit',
 				minute: '2-digit',
-				hour12: false
+				hour12: false,
+				timeZoneName: 'short'
 			}).format(new Date()));
 		tick();
 		const id = setInterval(tick, 15000);
@@ -71,7 +72,7 @@
 			<span class="truncate"><span class="text-accent">[frank]</span> {path}</span>
 		{/if}
 		<span class="whitespace-nowrap">
-			<span class="text-accent">[j/k]</span> move · <span class="text-accent">[?]</span> help · nyc
+			<span class="text-accent">[j/k]</span> move · <span class="text-accent">[?]</span> help ·
 			{time}
 		</span>
 	</div>
