@@ -17,7 +17,7 @@ describe('resolveKey', () => {
 	it('completes g sequences', () => {
 		expect(resolveKey('g', 'g')).toEqual({ action: 'top', pending: null });
 		expect(resolveKey('h', 'g')).toEqual({ action: 'goto:h', pending: null });
-		expect(resolveKey('b', 'g')).toEqual({ action: 'goto:b', pending: null });
+		expect(resolveKey('w', 'g')).toEqual({ action: 'goto:w', pending: null });
 	});
 
 	it('drops invalid g sequences', () => {

@@ -5,7 +5,7 @@ export const gotoMap: Record<string, { href: string; label: string }> = {
 	h: { href: resolve('/'), label: 'go home' },
 	p: { href: resolve('/projects'), label: 'go to projects' },
 	i: { href: resolve('/photos'), label: 'go to photos' },
-	b: { href: resolve('/blog'), label: 'go to blog' }
+	w: { href: resolve('/words'), label: 'go to words' }
 };
 
 /** drives the help overlay; keep in sync with the dispatcher in +layout.svelte */

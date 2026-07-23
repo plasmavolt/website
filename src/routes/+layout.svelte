@@ -18,9 +18,11 @@
 			<div>
 				<span class="text-accent">~</span>
 				<a href={resolve('/')} class="font-bold">frank (•˕ •マ.ᐟ</a>
-				<span class="text-dim">/ software, photos, occasional words</span>
+				<span class="text-dim">/ math ∧ cs @nyu</span>
 			</div>
-			<div class="text-dim">
+			<div
+				class="text-dim [&_a]:underline [&_a]:decoration-dim/50 [&_a]:underline-offset-4 [&_a:hover]:decoration-accent"
+			>
 				new york ·
 				<a href="https://github.com/plasmavolt">github</a> ·
 				<a href="https://linkedin.com/in/franktbh">linkedin</a> ·

@@ -6,7 +6,7 @@
 	const entries = [
 		{ href: resolve('/projects'), label: 'projects/', meta: `${projects.length} items` },
 		{ href: resolve('/photos'), label: 'photos/', meta: 'placeholders' },
-		{ href: resolve('/blog'), label: 'blog/', meta: 'wip' },
+		{ href: resolve('/words'), label: 'words/', meta: 'wip' },
 		{ href: '/resume.pdf', label: 'resume.pdf', meta: 'soon' }
 	];
 </script>
