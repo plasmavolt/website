@@ -20,7 +20,12 @@
 
 	type Segment = { text: string } | { eye: (typeof eyes)[keyof typeof eyes] };
 
-	const lines = art.map((line) => {
+	// drop the indent shared by every line so the pre's intrinsic width is
+	// just the cat itself, not empty space (it gets squeezed on mobile)
+	const commonIndent = Math.min(...art.map((line) => line.match(/^\s*/)![0].length));
+
+	const lines = art.map((raw) => {
+		const line = raw.slice(commonIndent);
 		const lead = line.match(/^\s*/)![0];
 		const segments: Segment[] = line
 			.slice(lead.length)
@@ -35,7 +40,7 @@
 </script>
 
 <pre
-	class="cat m-0 leading-none text-dim select-none [&:has(a:hover)]:text-accent">{#each lines as line, i (i)}{i >
+	class="cat m-0 shrink-0 leading-none text-dim select-none [&:has(a:hover)]:text-accent">{#each lines as line, i (i)}{i >
 		0
 			? '\n'
 			: ''}{line.lead}<a {href} target="_blank" rel="noopener" class="cursor-grab no-underline"

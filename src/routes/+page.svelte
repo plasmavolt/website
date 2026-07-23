@@ -80,13 +80,15 @@
 	</h2>
 	<ul class:boot style="--boot-i: 3">
 		{#each projects as project, i (project.name)}
-			<li class="grid grid-cols-[1ch_2ch_14ch_1fr] gap-x-3 px-1 py-1">
+			<li
+				class="grid grid-cols-[1ch_2ch_1fr] gap-x-3 px-1 py-1 sm:grid-cols-[1ch_2ch_14ch_1fr]"
+			>
 				<span class="marker">></span>
 				<span class="text-dim">{entries.length + i + 1}</span>
 				<a href={project.href} target="_blank" rel="noopener" use:kbItem class="no-underline"
 					>{project.name}<span class="text-dim">{project.ext}</span></a
 				>
-				<span class="text-dim">{project.description}</span>
+				<span class="text-dim max-sm:col-start-3">{project.description}</span>
 			</li>
 		{/each}
 	</ul>

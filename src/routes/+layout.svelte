@@ -35,8 +35,8 @@
 
 <div class="flex justify-center px-5 pt-16 pb-24">
 	<div class="w-full max-w-2xl">
-		<header class="mb-8 flex items-start justify-between">
-			<div>
+		<header class="mb-8 flex items-start justify-between gap-4">
+			<div class="min-w-0">
 				<div>
 					<span class="text-accent">~</span>
 					<a href={resolve('/')} class="font-bold">{site.name}</a>
@@ -65,7 +65,7 @@
 </div>
 
 <footer
-	class="fixed right-0 bottom-0 left-0 flex justify-center border-t border-line bg-bg px-5 py-2.5 text-sm text-dim"
+	class="fixed right-0 bottom-0 left-0 flex justify-center border-t border-line bg-bg px-5 pt-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] text-sm text-dim"
 >
 	<div class="flex w-full max-w-2xl justify-between gap-4">
 		{#if vim.cmd !== null}
@@ -76,7 +76,9 @@
 			<span class="truncate"><span class="text-accent">[frank]</span> {path}</span>
 		{/if}
 		<span class="whitespace-nowrap">
-			<span class="text-accent">[j/k]</span> move · <span class="text-accent">[?]</span> help ·
+			<span class="max-sm:hidden"
+				><span class="text-accent">[j/k]</span> move · <span class="text-accent">[?]</span> help ·</span
+			>
 			{time}
 		</span>
 	</div>
