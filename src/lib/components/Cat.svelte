@@ -16,7 +16,7 @@
 		R: { rest: '。', hover: '-', width: '1em' as string | undefined }
 	};
 
-	const href = 'https://en.wikipedia.org/wiki/Cat_(Unix)';
+	const href = 'https://en.wikipedia.org/wiki/Category_of_small_categories';
 
 	type Segment = { text: string } | { eye: (typeof eyes)[keyof typeof eyes] };
 
