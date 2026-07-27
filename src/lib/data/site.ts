@@ -9,7 +9,7 @@ export const site = {
 		{ label: 'email', href: 'mailto:frank.lin@nyu.edu' }
 	],
 	menu: [
-		{ href: '/photos', label: 'photos/', meta: 'placeholders' },
+		{ href: '/photos', label: 'photos/', meta: 'still wip' },
 		{ href: '/words', label: 'words/', meta: 'wip' },
 		{ href: '/resume.pdf', label: 'resume.pdf', meta: 'soon' }
 	]

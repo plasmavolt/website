@@ -26,6 +26,5 @@
 				/>
 			{/each}
 		</div>
-		<p class="mt-3 text-dim">(placeholders for now, real landscapes soon)</p>
 	{/if}
 </section>
