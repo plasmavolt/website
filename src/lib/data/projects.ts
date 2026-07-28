@@ -7,6 +7,12 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		name: 'acrossword',
+		ext: '.ts',
+		href: 'https://github.com/plasmavolt/acrossword',
+		description: 'multiplayer crosswords with sensible defaults'
+	},
+	{
 		name: 'chip-8',
 		ext: '.rs',
 		href: 'https://github.com/plasmavolt/chip-8',
